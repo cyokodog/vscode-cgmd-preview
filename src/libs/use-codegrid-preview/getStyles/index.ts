@@ -646,7 +646,7 @@ export const getStyles = () => {
       grid-column: full;
     }
   }
-  .cg-CGMarkdown.svelte-xv7zxx {
+  .cg-CGMarkdown {
     color:black;
     grid-column: main;
     display: grid;
@@ -677,8 +677,8 @@ export const getStyles = () => {
   .cg-CGMarkdown img {
     max-width: 100%;
   }
-  .cg-CGMarkdown.svelte-xv7zxx > pre,
-  .cg-CGMarkdown.svelte-xv7zxx > pre.code {
+  .cg-CGMarkdown > pre,
+  .cg-CGMarkdown > pre.code {
     grid-column: full;
   }
   .cg-CGMarkdown h2 {
@@ -727,7 +727,7 @@ export const getStyles = () => {
   .cg-CGMarkdown li p {
     margin: 0;
   }
-  .cg-CGMarkdown.svelte-xv7zxx > p + *:not(p) {
+  .cg-CGMarkdown > p + *:not(p) {
     margin-top: 20px;
   }
   .cg-CGMarkdown ol,
@@ -805,26 +805,26 @@ export const getStyles = () => {
     border-style: dotted;
     border-color: #333;
   }
-  .cg-CGMarkdown.svelte-xv7zxx > cg-code-block {
+  .cg-CGMarkdown > cg-code-block {
     grid-column: full;
   }
-  .cg-CGMarkdown.svelte-xv7zxx > cg-code-block * {
+  .cg-CGMarkdown > cg-code-block * {
     font-size: 14px;
   }
-  .cg-CGMarkdown.svelte-xv7zxx > cg-code-block > h6,
-  .cg-CGMarkdown.svelte-xv7zxx > cg-code-block > h5,
-  .cg-CGMarkdown.svelte-xv7zxx > cg-code-block > h4,
-  .cg-CGMarkdown.svelte-xv7zxx > cg-code-block > h3,
-  .cg-CGMarkdown.svelte-xv7zxx > cg-code-block > h2,
-  .cg-CGMarkdown.svelte-xv7zxx > cg-code-block > h1 {
+  .cg-CGMarkdown > cg-code-block > h6,
+  .cg-CGMarkdown > cg-code-block > h5,
+  .cg-CGMarkdown > cg-code-block > h4,
+  .cg-CGMarkdown > cg-code-block > h3,
+  .cg-CGMarkdown > cg-code-block > h2,
+  .cg-CGMarkdown > cg-code-block > h1 {
     margin-bottom: 0;
     height: auto;
   }
-  .cg-CGMarkdown.svelte-xv7zxx > cg-code-block > pre {
+  .cg-CGMarkdown > cg-code-block > pre {
     padding-top: 20px;
     padding-bottom: 20px;
   }
-  .cg-CGMarkdown.svelte-xv7zxx > cg-code-block > pre > code {
+  .cg-CGMarkdown > cg-code-block > pre > code {
     font-family: Roboto Mono, Consolas, Monaco, Andale Mono, Ubuntu Mono,
       monospace;
     text-align: left;
@@ -869,7 +869,7 @@ export const getStyles = () => {
     padding-top: 0;
     padding-bottom: 15px;
   }
-  .cg-CGMarkdown.svelte-xv7zxx > cg-livecode {
+  .cg-CGMarkdown > cg-livecode {
     grid-column: full;
     display: block;
   }
@@ -1641,10 +1641,10 @@ export const getStyles = () => {
       margin-right: 0;
     }
   }
-  .cg-Article:where(.astro-JWU2CTGO) {
+  .cg-Article {
     margin-bottom: 70px;
   }
-  .cg-Article_Body:where(.astro-JWU2CTGO) {
+  .cg-Article_Body {
     display: grid;
     grid-template-columns:
       [full-start] minmax(var(--base-content-side-gap), 1fr) [main-start] minmax(
@@ -1654,7 +1654,7 @@ export const getStyles = () => {
       [main-end] minmax(var(--base-content-side-gap), 1fr) [full-end];
     width: 100%;
   }
-  .cg-Article_Body:where(.astro-JWU2CTGO):after {
+  .cg-Article_Body:after {
     grid-column: main;
     justify-self: center;
     display: block;
@@ -1662,7 +1662,7 @@ export const getStyles = () => {
     margin-top: 50px;
     margin-bottom: 50px;
   }
-  .cg-Article_TocContainer:where(.astro-JWU2CTGO) {
+  .cg-Article_TocContainer {
     grid-column: main;
     display: grid;
     grid-template-columns:
@@ -1670,7 +1670,7 @@ export const getStyles = () => {
       [main-end] minmax(0, 40px) [full-end];
   }
   @media screen and (max-width: 930px) {
-    .cg-Article_TocContainer:where(.astro-JWU2CTGO) {
+    .cg-Article_TocContainer {
       grid-column: full;
       display: block;
     }

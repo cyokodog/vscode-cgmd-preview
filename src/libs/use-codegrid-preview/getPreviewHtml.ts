@@ -14,8 +14,8 @@ export const getPreviewHtml = (articleHtml: string) => {
   </head>
   <body>
   <main class="cmn-Main">
-  <div class="cg-Article_Body astro-JWU2CTGO">
-  <div class="cg-CGMarkdown svelte-xv7zxx">
+  <div class="cg-Article_Body">
+  <div class="cg-CGMarkdown">
   ${articleHtml}
   </div>
   </div>
