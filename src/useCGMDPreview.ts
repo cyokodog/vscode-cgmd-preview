@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import path from 'path';
 import { useCodeGridMarkdown } from './libs/use-codegrid-markdown';
 import { useCodeGridPreview } from './libs/use-codegrid-preview';
 
@@ -8,10 +9,14 @@ let webviewPanelDisposed = false;
 export const useCGMDPreview = () => {
   const cgMdCtx = useCodeGridMarkdown();
   const cgPreviewCtx = useCodeGridPreview();
-
   return {
     showPreview() {
-      if (!vscode.window.activeTextEditor) {
+      const { activeTextEditor } = vscode.window;
+
+      if (
+        !activeTextEditor ||
+        path.extname(activeTextEditor.document.fileName) !== '.md'
+      ) {
         return;
       }
 
@@ -31,8 +36,9 @@ export const useCGMDPreview = () => {
       }
 
       const articleHtml = cgMdCtx.toArticleHtml(
-        vscode.window.activeTextEditor.document.getText() || ''
+        activeTextEditor.document.getText() || ''
       );
+
       webviewPanel.webview.html = cgPreviewCtx.toPreviewHtml(articleHtml);
     },
   };
