@@ -6,9 +6,9 @@ export function activate(context: vscode.ExtensionContext) {
     'Congratulations, your extension "vscode-cgmd-preview" is now active!'
   );
 
-  const CGMD = useCGMDPreview();
+  const CGMD = useCGMDPreview(context);
 
-  // mdファイル保存時にプレビューを表示する
+  // ファイル保存時にプレビューを表示する
   const saveDisposable = vscode.workspace.onDidSaveTextDocument((event) => {
     CGMD.showPreview();
   });
