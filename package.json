@@ -27,12 +27,14 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/cyokodog/vscode-cgmd-preview.git"
   },
+  "author": "cyokodog <cyokodog@gmail.com> (https://www.cyokodog.net/)",
   "dependencies": {
     "codegrid-markdown": "^5.0.0",
     "gray-matter": "^4.0.3",
