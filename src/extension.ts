@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { useCGMDPreview } from './useCgmdPreview';
+import { useCGMDPreview } from './useCGMDPreview';
 
 export function activate(context: vscode.ExtensionContext) {
   console.log(
