@@ -29,6 +29,10 @@
     "lint": "eslint src --ext ts",
     "test": "node ./out/test/runTest.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cyokodog/vscode-cgmd-preview.git"
+  },
   "dependencies": {
     "codegrid-markdown": "^5.0.0",
     "gray-matter": "^4.0.3",
