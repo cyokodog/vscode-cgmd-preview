@@ -9,7 +9,7 @@ npm i
 npm run package
 ```
 
-vscode-cgmd-preview-0.0.1.vsix が生成されるので、「VSIX からのインストール...」からインストールする。
+vscode-cgmd-preview-0.0.1.vsix が生成されるので、「拡張機能の VSIX のインストール」を選びインストールする。
 
 ![「VSIX からのインストール...」のUIのスクショ](./assets/images/vsix-install.png)
 
