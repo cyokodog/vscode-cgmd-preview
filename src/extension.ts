@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { useCodeGridMarkdown } from './libs/use-codegrid-markdown';
 
 export function activate(context: vscode.ExtensionContext) {
   console.log(
@@ -10,6 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   const showPreview = () => {
     if (vscode.window.activeTextEditor) {
+      const cgMdCtx = useCodeGridMarkdown();
       if (!webviewPanel || webviewPanelDisposed) {
         webviewPanel = vscode.window.createWebviewPanel(
           'preview',
@@ -25,6 +27,11 @@ export function activate(context: vscode.ExtensionContext) {
       webviewPanel.onDidDispose(() => {
         webviewPanelDisposed = true;
       });
+
+      const articleHtml = cgMdCtx.toArticleHtml(
+        vscode.window.activeTextEditor.document.getText() || ''
+      );
+      console.log('articleHtml', articleHtml);
 
       webviewPanel.webview.html = `<!DOCTYPE html>
       <html lang="en">
@@ -48,6 +55,7 @@ export function activate(context: vscode.ExtensionContext) {
   const cmdDisposable = vscode.commands.registerCommand(
     'vscode-cgmd-preview.preview',
     () => {
+      showPreview();
       vscode.window.showInformationMessage('run vscode-cgmd-preview!');
     }
   );
