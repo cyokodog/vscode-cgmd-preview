@@ -12,7 +12,7 @@ export const getStyles = () => {
     --button-bg-color-hover: #15ce53;
     --bg-gray: #f0f2ee;
     --caution-font-color: #a60000;
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
   }
   /* 狭い画面でのスタイル */
   @media screen and (max-width: 930px) {
