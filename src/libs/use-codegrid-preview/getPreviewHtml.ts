@@ -1,3 +1,4 @@
+import { getScripts } from './getScripts';
 import { getStyles } from './getStyles';
 
 export const getPreviewHtml = (articleHtml: string) => {
@@ -10,7 +11,9 @@ export const getPreviewHtml = (articleHtml: string) => {
   <style>
     ${getStyles()}  
   </style>
-  <script src="https://www.codegrid.net/assets/generated/components/codegrid-components.min.js"></script>
+  <script>
+    ${getScripts()}
+  </script>
   </head>
   <body>
   <main class="cmn-Main">
