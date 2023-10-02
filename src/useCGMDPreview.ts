@@ -7,9 +7,7 @@ import { useCodeGridPreview } from './libs/use-codegrid-preview';
 let webviewPanel = null as null | vscode.WebviewPanel;
 let webviewPanelDisposed = false;
 
-export const useCGMDPreview = (_context: vscode.ExtensionContext) => {
-  //_context.extensionUri: 拡張機能のベースパスが得られる
-
+export const useCGMDPreview = (context: vscode.ExtensionContext) => {
   const markdownCtx = useCodeGridMarkdown();
   const previewCtx = useCodeGridPreview();
   return {
@@ -39,9 +37,15 @@ export const useCGMDPreview = (_context: vscode.ExtensionContext) => {
       }
       const { webview } = webviewPanel;
       const basePath = path.dirname(activeTextEditor.document.fileName || '');
+      const { extensionPath } = context;
       const md = activeTextEditor.document.getText() || '';
       const html = markdownCtx.toHtml(md);
-      const webviewHtml = previewCtx.toWebviewHtml({ html, webview, basePath });
+      const webviewHtml = previewCtx.toWebviewHtml({
+        html,
+        webview,
+        basePath,
+        extensionPath,
+      });
       webviewPanel.webview.html = webviewHtml;
     },
   };
