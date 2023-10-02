@@ -16,8 +16,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "vscode-cgmd-preview.helloWorld",
-        "title": "Hello World"
+        "command": "vscode-cgmd-preview.preview",
+        "title": "CGMD Preview"
       }
     ]
   },
