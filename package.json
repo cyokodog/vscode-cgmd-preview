@@ -37,7 +37,6 @@
   "author": "cyokodog <cyokodog@gmail.com> (https://www.cyokodog.net/)",
   "dependencies": {
     "codegrid-markdown": "^5.0.0",
-    "gray-matter": "^4.0.3",
     "jsdom": "^22.1.0"
   },
   "devDependencies": {
