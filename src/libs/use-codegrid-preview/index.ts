@@ -1,5 +1,5 @@
 import path from 'path';
-import { Uri, Webview } from 'vscode';
+import { Webview } from 'vscode';
 import { getPreviewHtml } from './getPreviewHtml';
 import { JSDOM } from 'jsdom';
 import { getWebviewUri } from './getWebviewUri';
@@ -19,7 +19,7 @@ export const useCodeGridPreview = () => {
     }) {
       const doc = new JSDOM(html).window.document;
       doc.querySelectorAll('img').forEach((img) => {
-        if (img.src.startsWith('.')) {
+        if (/^https?\:\/\//.test(img.src) === false) {
           img.setAttribute(
             'src',
             getWebviewUri(webview, path.join(basePath, img.src))
