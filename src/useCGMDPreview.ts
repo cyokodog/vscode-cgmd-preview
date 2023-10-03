@@ -7,8 +7,8 @@ import { useCodeGridPreview } from './libs/use-codegrid-preview';
 let webviewPanel = null as null | vscode.WebviewPanel;
 let webviewPanelDisposed = false;
 
-export const useCGMDPreview = (context: vscode.ExtensionContext) => {
-  const markdownCtx = useCodeGridMarkdown();
+export const useCGMDPreview = async (context: vscode.ExtensionContext) => {
+  const markdownCtx = await useCodeGridMarkdown();
   const previewCtx = useCodeGridPreview();
   return {
     showPreview() {

@@ -1,12 +1,12 @@
 import * as vscode from 'vscode';
 import { useCGMDPreview } from './useCGMDPreview';
 
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
   console.log(
     'Congratulations, your extension "vscode-cgmd-preview" is now active!'
   );
 
-  const CGMD = useCGMDPreview(context);
+  const CGMD = await useCGMDPreview(context);
 
   // ファイル保存時にプレビューを表示する
   const saveDisposable = vscode.workspace.onDidSaveTextDocument((event) => {
