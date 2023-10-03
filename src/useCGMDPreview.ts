@@ -24,7 +24,7 @@ export const useCGMDPreview = (context: vscode.ExtensionContext) => {
       if (!webviewPanel || webviewPanelDisposed) {
         webviewPanel = vscode.window.createWebviewPanel(
           'preview',
-          'preview',
+          'CGMD Preview',
           vscode.ViewColumn.Two,
           {
             enableScripts: true,
