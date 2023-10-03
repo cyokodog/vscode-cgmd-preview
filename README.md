@@ -6,7 +6,7 @@ CodeGrid の原稿用.md をプレビューするための拡張機能です。
 
 ## インストール
 
-```
+```bash
 npm i
 npm run package
 ```
