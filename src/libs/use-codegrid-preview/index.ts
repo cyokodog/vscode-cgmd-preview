@@ -18,11 +18,15 @@ export const useCodeGridPreview = () => {
       extensionPath: string;
     }) {
       const doc = new JSDOM(html).window.document;
-      doc.querySelectorAll('img').forEach((img) => {
-        if (/^https?\:\/\//.test(img.src) === false) {
-          img.setAttribute(
+      [
+        ...doc.querySelectorAll('img'),
+        ...doc.querySelectorAll('cg-imgbox'),
+      ].forEach((el: any) => {
+        const src = el.getAttribute('src');
+        if (/^https?\:\/\//.test(src) === false) {
+          el.setAttribute(
             'src',
-            getWebviewUri(webview, path.join(basePath, img.src))
+            getWebviewUri(webview, path.join(basePath, src))
           );
         }
       });
