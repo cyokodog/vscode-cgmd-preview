@@ -3,6 +3,9 @@ import * as vscode from 'vscode';
 import path from 'path';
 import { useCodeGridMarkdown } from './libs/use-codegrid-markdown';
 import { useCodeGridPreview } from './libs/use-codegrid-preview';
+import { wrapImagesInImgbox } from './utils/wrapImagesInImgbox';
+import { imageFileRename } from './utils/imageFileRename';
+import { imageFileMove } from './utils/imageFileMove';
 
 let webviewPanel = null as null | vscode.WebviewPanel;
 let webviewPanelDisposed = false;
@@ -13,7 +16,6 @@ export const useCGMDPreview = async (context: vscode.ExtensionContext) => {
   return {
     showPreview() {
       const { activeTextEditor } = vscode.window;
-
       if (
         !activeTextEditor ||
         path.extname(activeTextEditor.document.fileName) !== '.md'
@@ -47,6 +49,12 @@ export const useCGMDPreview = async (context: vscode.ExtensionContext) => {
         extensionPath,
       });
       webviewPanel.webview.html = webviewHtml;
+    },
+
+    async imageFileJustifyAsync(document: vscode.TextDocument) {
+      await wrapImagesInImgbox(document);
+      await imageFileRename(document);
+      await imageFileMove(document);
     },
   };
 };
