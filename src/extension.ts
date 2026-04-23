@@ -11,7 +11,7 @@ export async function activate(context: vscode.ExtensionContext) {
   // ファイル保存時にプレビューを表示する
   const saveDisposable = vscode.workspace.onDidSaveTextDocument(
     async (document) => {
-      if (document.languageId === 'markdown') {
+      if (document.fileName.endsWith('.md')) {
         await CGMD.imageFileJustifyAsync(document);
         CGMD.showPreview();
       }
