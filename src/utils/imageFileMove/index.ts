@@ -11,10 +11,6 @@ export const imageFileMove = async (
   const markdownDir = path.dirname(document.fileName);
   const assetsDir = path.join(markdownDir, 'assets', 'img');
 
-  if (!fs.existsSync(assetsDir)) {
-    await fs.promises.mkdir(assetsDir, { recursive: true });
-  }
-
   const text = document.getText();
   let match: RegExpExecArray | null;
 
