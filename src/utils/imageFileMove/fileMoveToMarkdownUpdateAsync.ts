@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as path from 'path';
 import * as vscode from 'vscode';
 
 export const fileMoveToMarkdownUpdateAsync = async ({
@@ -18,6 +19,7 @@ export const fileMoveToMarkdownUpdateAsync = async ({
 }) => {
   return new Promise<null>(async (resolve, reject) => {
     try {
+      await fs.promises.mkdir(path.dirname(newImagePath), { recursive: true });
       await fs.promises.rename(absoluteImagePath, newImagePath);
       console.log(`Moved image to: ${newImagePath}`);
 
