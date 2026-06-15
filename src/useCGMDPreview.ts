@@ -30,6 +30,10 @@ export const useCGMDPreview = async (context: vscode.ExtensionContext) => {
           vscode.ViewColumn.Two,
           {
             enableScripts: true,
+            localResourceRoots: [
+              vscode.Uri.file(context.extensionPath),
+              vscode.Uri.file(path.dirname(activeTextEditor.document.fileName)),
+            ],
           }
         );
         webviewPanelDisposed = false;
